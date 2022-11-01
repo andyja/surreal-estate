@@ -5,7 +5,7 @@ const NavBar = () => {
   return (
     <div className="NavBar">
       <img className="logo" src="/logos/logo.png" alt="company logo" />
-      <ul className="navbar-links">
+      {/* <ul className="navbar-links">
         <li className="navbar-links-item">
           <Link className="item" to="/">
             View Properties
@@ -16,7 +16,7 @@ const NavBar = () => {
             Add a Property
           </Link>
         </li>
-      </ul>
+      </ul> */}
     </div>
   );
 };

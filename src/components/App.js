@@ -1,16 +1,14 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import "../styles/App.css";
-import NavBar from "./NavBar";
+// import NavBar from "./NavBar";
+import Layout from "./Layout";
 
 const App = () => {
   return (
-    <>
-      <div className="App">
-        <NavBar />
-      </div>
-      <p>Hello World</p>
-    </>
+    <BrowserRouter>
+      <Layout />
+    </BrowserRouter>
   );
 };
 

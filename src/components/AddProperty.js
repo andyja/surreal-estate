@@ -3,15 +3,23 @@ import "../styles/add-property.css";
 
 const AddProperty = () => {
   const initialState = {
-    fields: {
-      title: "",
-    },
+    title: "2 bed flat",
+    city: "Leeds",
+    type: "Flat",
+    bedrooms: "2",
+    price: "andypauljackson@gmail.com",
+    email: "",
   };
 
-  const [fields, setFields] = useState(initialState.fields);
+  const [fields, setFields] = useState(initialState);
 
   const handleAddProperty = (event) => {
     event.preventDefault();
+
+    console.log(fields);
+
+    // Do some saving logic here
+    // setFields(initialState);
   };
 
   const handleFieldChange = (event) => {

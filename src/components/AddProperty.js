@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import "../styles/add-property.css";
+import postData from "../requests/postData";
 
 const AddProperty = () => {
   const initialState = {
@@ -12,31 +13,16 @@ const AddProperty = () => {
     email: "",
   };
 };
+
 const [fields, setFields] = useState(initialState.fields);
 const [alert, setAlert] = useState(initialState.alert);
 
-const postData = (fields, setAlert) => {
-  axios
-    .post("http://localhost:4000/api/vi/PropertyListing", fields)
-    .then(() => {
-      setAlert({
-        message: "Property Added",
-        isSuccess: true,
-      });
-    })
-    .catch(() => {
-      setAlert({
-        message: "Error, please try again later.",
-        isSuccess: false,
-      });
-    });
+
   const handleAddProperty = (event) => {
     postData(fields, setAlert);
     event.preventDefault();
     setAlert({ message: "", isSuccess: false });
     console.log(fields);
-    // Do some saving logic here
-    // setFields(initialState);
   };
 
   const handleFieldChange = (event) => {

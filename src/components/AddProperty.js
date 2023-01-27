@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useState } from "react";
 import "../styles/add-property.css";
 
@@ -13,11 +14,22 @@ const AddProperty = () => {
 
   const [fields, setFields] = useState(initialState);
 
-  const handleAddProperty = (event) => {
-    event.preventDefault();
-
+  const handleAddProperty = (fields, setAlert) => {
+    axios
+      .post("http://localhost:4000/api/vi/PropertyListing", fields)
+      .then(() => {
+        setAlert({
+          message: "Property Added",
+          isSuccess: true,
+        });
+      })
+      .catch(() => {
+        setAlert({
+          message: "Error, please try again later.",
+          isSuccess: false,
+        });
+      });
     console.log(fields);
-
     // Do some saving logic here
     // setFields(initialState);
   };

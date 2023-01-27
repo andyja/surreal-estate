@@ -4,31 +4,36 @@ import "../styles/add-property.css";
 
 const AddProperty = () => {
   const initialState = {
-    title: "2 bed flat",
+    title: "",
     city: "Leeds",
     type: "Flat",
     bedrooms: "2",
-    price: "andypauljackson@gmail.com",
+    price: "0",
     email: "",
   };
+};
+const [fields, setFields] = useState(initialState.fields);
+const [alert, setAlert] = useState(initialState.alert);
 
-  const [fields, setFields] = useState(initialState);
-
-  const handleAddProperty = (fields, setAlert) => {
-    axios
-      .post("http://localhost:4000/api/vi/PropertyListing", fields)
-      .then(() => {
-        setAlert({
-          message: "Property Added",
-          isSuccess: true,
-        });
-      })
-      .catch(() => {
-        setAlert({
-          message: "Error, please try again later.",
-          isSuccess: false,
-        });
+const postData = (fields, setAlert) => {
+  axios
+    .post("http://localhost:4000/api/vi/PropertyListing", fields)
+    .then(() => {
+      setAlert({
+        message: "Property Added",
+        isSuccess: true,
       });
+    })
+    .catch(() => {
+      setAlert({
+        message: "Error, please try again later.",
+        isSuccess: false,
+      });
+    });
+  const handleAddProperty = (event) => {
+    postData(fields, setAlert);
+    event.preventDefault();
+    setAlert({ message: "", isSuccess: false });
     console.log(fields);
     // Do some saving logic here
     // setFields(initialState);

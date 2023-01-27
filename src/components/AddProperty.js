@@ -1,22 +1,25 @@
-import axios from "axios";
 import React, { useState } from "react";
-import "../styles/add-property.css";
 import postData from "../requests/postData";
+import Alert from "./Alert";
+import "../styles/add-property.css";
 
 const AddProperty = () => {
   const initialState = {
-    title: "",
-    city: "Leeds",
-    type: "Flat",
-    bedrooms: "2",
-    price: "0",
-    email: "",
+    fields: {
+      title: "",
+      city: "Leeds",
+      type: "Flat",
+      bedrooms: "2",
+      price: "0",
+      email: "",
+    },
+    alert: {
+      message: "",
+      isSuccess: false,
+    },
   };
-};
-
-const [fields, setFields] = useState(initialState.fields);
-const [alert, setAlert] = useState(initialState.alert);
-
+  const [fields, setFields] = useState(initialState.fields);
+  const [alert, setAlert] = useState(initialState.alert);
 
   const handleAddProperty = (event) => {
     postData(fields, setAlert);
@@ -31,6 +34,10 @@ const [alert, setAlert] = useState(initialState.alert);
 
   return (
     <div className="add-property">
+      <p>
+        Enter property information and click submit to add property to database.
+      </p>
+      <Alert message={alert.message} success={alert.isSuccess} />
       <form onSubmit={handleAddProperty}>
         <input
           id="title"

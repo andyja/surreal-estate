@@ -1,10 +1,9 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
-// import { BrowserRouter } from "react-router-dom";
-import "../styles/App.css";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import "../styles/app.css";
 import AddProperty from "./AddProperty";
 import HomePage from "./HomePage";
-// import NavBar from "./NavBar";
+import NavBar from "./NavBar";
 import Layout from "./Layout";
 import Properties from "./Properties";
 

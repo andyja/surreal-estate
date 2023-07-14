@@ -27,3 +27,40 @@
     bottom: 0px;
     margin: 0px;
 }
+
+.navbar-links,
+.navbar-logo,
+.login-button {
+    display: inline;
+    margin: 0px;
+    padding: 0px 4px;
+}
+
+.login-button {
+    float: right;
+    padding: 0px;
+    height: 0px;
+}
+
+.navbar-link {
+    background-color: rgb(171, 150, 171);
+    z-index: -1;
+    margin: 0px 5px;
+    border: 1px solid black;
+    border-bottom: 1px solid rgb(171, 150, 171);
+    border-radius: 3px 3px 0px 0px;
+    text-align: center;
+}
+
+.item {
+    text-decoration: none;
+    color: black;
+}
+
+.logout-button {
+    background-color: purple;
+    color: white;
+    height: 40px;
+    width: 60px;
+    margin: 10px;
+}
